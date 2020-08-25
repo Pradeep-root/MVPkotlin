@@ -12,12 +12,14 @@ import com.raywenderlich.android.creaturemon.R
 import com.raywenderlich.android.creaturemon.model.AttributeStore
 import com.raywenderlich.android.creaturemon.model.AttributeValue
 import com.raywenderlich.android.creaturemon.model.Avatar
+import com.raywenderlich.android.creaturemon.presenter.CreatureContract
 import com.raywenderlich.android.creaturemon.view.avatars.AvatarAdapter
 import com.raywenderlich.android.creaturemon.view.avatars.AvatarBottomDialogFragment
 import kotlinx.android.synthetic.main.activity_creature.*
 
 
-class CreatureActivity : AppCompatActivity(), AvatarAdapter.AvatarListener {
+class CreatureActivity : AppCompatActivity(), AvatarAdapter.AvatarListener,
+        CreatureContract.View {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -94,5 +96,13 @@ class CreatureActivity : AppCompatActivity(), AvatarAdapter.AvatarListener {
 
   private fun hideTapLabel() {
     tapLabel.visibility = View.INVISIBLE
+  }
+
+  override fun showHitPoints(hitPoints: String) {
+    this.hitPoints.text = hitPoints
+  }
+
+  override fun showAvatarDrawable(resourceId: Int) {
+    avatarImageView.setImageResource(resourceId)
   }
 }
