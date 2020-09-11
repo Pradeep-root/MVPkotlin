@@ -1,15 +1,11 @@
 package com.raywenderlich.android.creaturemon.presenter
 
-import com.raywenderlich.android.creaturemon.model.AttributeType
-import com.raywenderlich.android.creaturemon.model.Creature
-import com.raywenderlich.android.creaturemon.model.CreatureAttributes
-import com.raywenderlich.android.creaturemon.model.CreatureGenerator
+import com.raywenderlich.android.creaturemon.model.*
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
-import kotlin.concurrent.timer
 
 class CreaturePresenterTest{
 
@@ -21,10 +17,13 @@ class CreaturePresenterTest{
     @Mock
     lateinit var mockGenerator : CreatureGenerator
 
+    @Mock
+    lateinit var mockCreatureRepository: CreatureRepository
+
     @Before
     fun setup(){
         MockitoAnnotations.initMocks(this)
-        creaturePresenter = CreaturePresenter(mockGenerator)
+        creaturePresenter = CreaturePresenter(mockGenerator, mockCreatureRepository)
         creaturePresenter.setView(view)
     }
 
