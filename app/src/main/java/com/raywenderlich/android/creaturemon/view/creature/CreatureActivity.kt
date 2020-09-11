@@ -94,7 +94,7 @@ class CreatureActivity : AppCompatActivity(), AvatarAdapter.AvatarListener,
     }
 
     saveButton.setOnClickListener {
-      // TODO: handle save button clicked
+      // TODO: handle save button clicked \
     }
   }
 
